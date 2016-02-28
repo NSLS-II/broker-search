@@ -3,8 +3,8 @@
 <script type="text/javascript">
   $(function() {
     var submit_form = function(e) {
-      $.getJSON($SCRIPT_ROOT + '/_add_numbers', {
-        a: $('input[name="a"]').val(),
+      $.getJSON($SCRIPT_ROOT + '/search', {
+        q: $('input[name="q"]').val(),
       }, function(data) {
         console.log(data.result);
         if (data.result.runs.length) {
@@ -27,11 +27,11 @@
       submit_form(e);
     });
 
-    $('input[name=a]').focus();
+    $('input[name=q]').focus();
   });
 </script>
 <h1>Search</h1>
 <p>
-  <input type="text" size="30" name="a">
+  <input type="text" size="60" name="q">
   <p id="result">No Results</span>
 {% endblock %}
